@@ -18,7 +18,7 @@ Built with ❤️ and rage against outdated packages by **Aditya**.
 
 ## 🛠 Usage
 
-### 1. 🔓 Make it executable:
+### 🔓 Make it executable and run:
 ```bash
 chmod +x update.sh
 
