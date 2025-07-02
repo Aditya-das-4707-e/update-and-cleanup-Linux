@@ -9,7 +9,7 @@ NC='\033[0m' # No Color
 
 # Banner
 echo -e "${BLUE}╭────────────────────────────╮"
-echo -e "│    ⚙️ Created by Aditya    │"
+echo -e "│    ⚙️  Created by Aditya    │"
 echo -e "╰────────────────────────────╯${NC}"
 
 # Dry-run mode check
