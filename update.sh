@@ -21,28 +21,28 @@ fi
 
 # Check for root
 if [ "$(id -u)" -ne 0 ]; then
-    echo -e "${RED}🚫 You are not the root user. Please run with sudo.${NC}"
+    echo -e "${RED}You are not the root user. Please run with sudo.${NC}"
     exit 1
 fi
 
 # Check internet connection
 if ping -c 1 -W 1 8.8.8.8 > /dev/null 2>&1; then
-    echo -e "${GREEN}🌐 Internet connection detected.${NC}"
-    echo -e "${YELLOW}🔄 Updating your system...${NC}"
+    echo -e "${GREEN}Internet connection detected.${NC}"
+    echo -e "${YELLOW}Updating your system...${NC}"
 
     # Perform update
     apt update && apt full-upgrade -y -o APT::Get::Always-Include-Phased-Updates=true
 
     if [ $? -eq 0 ]; then
-        echo -e "${GREEN}✅ System successfully updated!${NC}"
+        echo -e "${GREEN}System successfully updated!${NC}"
         
         # Cleanup
         echo -e "${YELLOW}🧹 Cleaning up...${NC}"
         apt autoremove -y && apt autoclean -y
-        echo -e "${GREEN}✨ Cleanup done!${NC}"
+        echo -e "${GREEN}Cleanup done!${NC}"
     else
-        echo -e "${RED}❌ Something went wrong during the update.${NC}"
+        echo -e "${RED}Something went wrong during the update.${NC}"
     fi
 else
-    echo -e "${RED}❌ No internet connection. Check your network.${NC}"
+    echo -e "${RED}No internet connection. Check your network.${NC}"
 fi
