@@ -1,6 +1,6 @@
 # ⚙️ Update Tool
 
-A clean, no-nonsense update script for Ubuntu and Debian-based systems.  
+A clean, userfull update script for Ubuntu and Debian-based systems.  
 Crafted with discipline, clarity, and a strong dislike for outdated packages — by **Aditya**.
 
 ---
@@ -15,7 +15,6 @@ Crafted with discipline, clarity, and a strong dislike for outdated packages —
 - ✅ Default confirmation prompt is **Yes** (`[Y/n]`)
 - ✅ Logs all activity to `/var/log/update-script.log`
 - ✅ Includes a **spinner animation** during update
-- ✅ Minimal, color-coded terminal output (no emojis)
 
 ---
 
