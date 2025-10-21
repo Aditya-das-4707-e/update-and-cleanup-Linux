@@ -13,10 +13,43 @@ VERSION="1.3.0"
 # Log file
 LOGFILE="/var/log/update-script.log"
 
-# Banner
-echo -e "${BLUE}╭────────────────────────────╮"
-echo -e "│     Created by Aditya      │"
-echo -e "╰────────────────────────────╯${NC}"
+# ─────────────────────────────────────────────
+# Time-based Greeting
+# ─────────────────────────────────────────────
+current_hour=$(date +"%H")
+current_minute=$(date +"%M")
+
+# Convert to total minutes since midnight
+total_minutes=$((10#$current_hour * 60 + 10#$current_minute))
+
+if (( total_minutes >= 240 && total_minutes <= 660 )); then
+    # 04:00 - 11:00 AM
+    echo -e "${BLUE}╭────────────────────────────╮"
+    echo -e "│     Good Morning Aditya    │"
+    echo -e "╰────────────────────────────╯${NC}"
+elif (( total_minutes >= 661 && total_minutes <= 780 )); then
+    # 11:01 AM - 01:00 PM
+    echo -e "${BLUE}╭────────────────────────────╮"
+    echo -e "│      Good Noon Aditya      │"
+    echo -e "╰────────────────────────────╯${NC}"
+elif (( total_minutes >= 781 && total_minutes <= 990 )); then
+    # 01:01 PM - 04:30 PM
+    echo -e "${BLUE}╭────────────────────────────╮"
+    echo -e "│   Good Afternoon Aditya    │"
+    echo -e "╰────────────────────────────╯${NC}"
+elif (( total_minutes >= 991 && total_minutes <= 1140 )); then
+    # 04:31 PM - 07:00 PM
+    echo -e "${BLUE}╭────────────────────────────╮"
+    echo -e "│    Good Evening Aditya     │"
+    echo -e "╰────────────────────────────╯${NC}"
+else
+    # 07:01 PM - 03:59 AM
+    echo -e "${BLUE}╭────────────────────────────╮"
+    echo -e "│     Good Night Aditya      │"
+    echo -e "╰────────────────────────────╯${NC}"
+fi
+# ─────────────────────────────────────────────
+
 
 # Help option
 if [[ "$1" == "--help" ]]; then
@@ -84,7 +117,7 @@ if ping -c 1 -W 1 8.8.8.8 > /dev/null 2>&1; then
 
     if [ $? -eq 0 ]; then
         echo -e "${GREEN}System successfully updated.${NC}"
-        
+
         echo -e "${YELLOW}Cleaning up...${NC}"
         apt-get autoremove -y && apt-get autoclean -y
         echo -e "${GREEN}Cleanup done.${NC}"
