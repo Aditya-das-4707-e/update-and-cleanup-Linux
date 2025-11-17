@@ -8,7 +8,7 @@ BLUE='\033[1;34m'
 NC='\033[0m' # No Color
 
 # Version
-VERSION="1.3.0"
+VERSION="2.0.0"
 
 # Log file
 LOGFILE="/var/log/update-script.log"
@@ -50,6 +50,9 @@ else
 fi
 # ─────────────────────────────────────────────
 
+# Display current date and time
+current_datetime=$(date)
+echo -e "${YELLOW}Script started at: $current_datetime${NC}"
 
 # Help option
 if [[ "$1" == "--help" ]]; then
@@ -126,6 +129,26 @@ if ping -c 1 -W 1 8.8.8.8 > /dev/null 2>&1; then
     fi
 else
     echo -e "${RED}No internet connection. Check your network.${NC}"
+fi
+
+# ─────────────────────────────────────────────────
+# Temperature check: Running 'sensors' command
+# ─────────────────────────────────────────────────
+
+echo -e "${GREEN}Running sensors command to check computer temperature:${NC}"
+
+# Try to run 'sensors' command
+sensors_output=$(sensors 2>&1)
+
+# Check if sensors command is available and has output
+if echo "$sensors_output" | grep -q "No sensors found"; then
+    # If sensors is not found, display the message and exit
+    echo -e "${YELLOW}sensors not found. Please install sensors using this command: ${NC}${GREEN}sudo apt install lm-sensors${NC}"
+    echo -e "${YELLOW}Then, try to run this script again.${NC}"
+    exit 1
+else
+    # If sensors command works, display the output
+    echo "$sensors_output"
 fi
 
 # Exit banner
