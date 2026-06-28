@@ -72,7 +72,7 @@ fi
 # Dry-run mode
 if [[ "$1" == "--dry-run" ]]; then
     echo -e "${YELLOW}Dry run mode. No changes will be made.${NC}"
-    apt-get update && apt-get -s dist-upgrade
+    sudo apt update && sudo apt upgrade
     exit 0
 fi
 
@@ -115,7 +115,7 @@ if ping -c 1 -W 1 8.8.8.8 > /dev/null 2>&1; then
 
     # Update + upgrade
     (
-        apt-get update && apt-get dist-upgrade -y
+        sudo apt update && sudo apt upgrade
     ) & show_spinner
 
     if [ $? -eq 0 ]; then
