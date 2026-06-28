@@ -369,7 +369,7 @@ sudo update.sh --verbose
 
 ---
 
-## 📈 Exit Codes
+## Exit Codes
 
 | Code | Meaning |
 |------|---------|
@@ -379,7 +379,7 @@ sudo update.sh --verbose
 
 ---
 
-## 📚 Files
+## Files
 
 - `update.sh` - Main script (v3.0.0)
 - `README.md` - This file
@@ -389,7 +389,7 @@ sudo update.sh --verbose
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Found a bug or have a feature request?
 - Test on your system
@@ -399,21 +399,21 @@ Found a bug or have a feature request?
 
 ---
 
-## 📜 License
+## License
 
 Free to use and modify for personal/commercial use.  
 Attribution appreciated but not required.
 
 ---
 
-## 🎉 Credits
+## Credits
 
 Built with attention to detail by **Aditya**.  
 Inspired by the need for clean, reliable system maintenance.
 
 ---
 
-## 📞 Support
+## Support
 
 ### Getting Help
 1. Check `/var/log/update-script.log` for error details
@@ -443,4 +443,3 @@ grep "\[ERROR\]" /var/log/update-script.log
 
 **Version:** 3.0.0  
 **Last Updated:** June 28, 2026  
-**Status:** ✅ Production Ready
