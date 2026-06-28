@@ -116,7 +116,7 @@ show_greeting() {
     fi
 
     echo -e "${BLUE}╭────────────────────────────╮"
-    echo -e "│${NC} $(printf '%-26s' "$greeting")${BLUE}│"
+    echo -e "│ ${NC} $(printf '%-26s' "$greeting")${BLUE}│"
     echo -e "╰────────────────────────────╯${NC}"
 }
 
@@ -390,7 +390,7 @@ generate_report() {
 # Display exit banner
 show_exit_banner() {
     echo -e "\n${BLUE}╭────────────────────────────╮"
-    echo -e "│${NC}   All done. Goodbye! ✓      ${BLUE}│"
+    echo -e "│${NC}   All done. Goodbye! ✓     ${BLUE}│"
     echo -e "╰────────────────────────────╯${NC}\n"
 }
 
